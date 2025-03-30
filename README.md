@@ -38,19 +38,41 @@
 - matplotlib
 - imageio
 
-## 사용 방법
+## 설치 방법
 
-1. 필요한 라이브러리 설치:
 ```bash
-pip install numpy imutils scikit-image scipy matplotlib imageio
+# 저장소 클론
+git clone https://github.com/bemoregt/SinogramReconstruction.git
+cd SinogramReconstruction
+
+# 필요한 패키지 설치
+pip install -r requirements.txt
 ```
 
-2. 시노그램 이미지 준비 (예: 'sinog.png')
+## 사용 방법
 
-3. 코드 실행:
+### 1. 샘플 시노그램 생성
+
+테스트용 시노그램을 생성하려면 다음 명령어를 실행합니다:
+
+```bash
+python generate_sample_sinogram.py
+```
+
+이 스크립트는 Shepp-Logan 팬텀 이미지를 생성하고, 이를 이용해 시노그램을 생성한 후 'sinog.png' 파일로 저장합니다.
+
+### 2. 이미지 복원
+
+생성된 시노그램 또는 사용자의 시노그램을 이용해 이미지를 복원하려면:
+
 ```bash
 python sinogram_reconstruction.py
 ```
+
+이 스크립트는 다음 세 가지 결과 이미지를 생성합니다:
+- `reconstructed_no_filter.png`: 필터링 없이 복원된 이미지
+- `reconstructed_with_filter.png`: 램프 필터링을 적용하여 복원된 이미지
+- `reconstructed_with_hamming.png`: 해밍 윈도우를 추가로 적용한 이미지
 
 ## 결과
 
